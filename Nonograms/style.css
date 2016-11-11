@@ -1,0 +1,25 @@
+table, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.square {
+    width: 25px;
+    height: 25px;
+}
+
+.filled {
+    background-color: black;
+}
+
+.empty {
+  background-color: white;
+}
+
+.marked {
+  background-color: lightGrey;
+}
+
+.square:hover {
+  background-color: grey;
+}
