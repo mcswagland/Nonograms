@@ -39,6 +39,21 @@ function MarkCell(cell)
 	}
   }
   
+  function BuildBoardHTML(rows, cols)
+  {
+	  var $board = $("#boardBody");
+	  for(var row = 0; row < rows; row++)
+	  {
+		  var newRow = "<tr>";
+		  for(var col = 0; col < cols; col++)
+		  {
+			  newRow += "<td class = 'square empty' id='" + row + "-" + col + "'/>";
+		  }
+		  newRow += "</tr>";
+		  $board.append($(newRow));
+	  }
+  }
+  
 function CellIsFilled(cell)
 {
 	var dashIndex = cell.indexOf('-');
@@ -71,9 +86,12 @@ function UpdateBoard(cell)
 }
 
 $(function(){
-var BOARD_SIZE = 5;
+var BOARD_WIDTH = 10;
+var BOARD_HEIGHT = 10;
 
-BuildBoardArray(BOARD_SIZE, BOARD_SIZE);
+BuildBoardArray(BOARD_HEIGHT, BOARD_WIDTH);
+
+BuildBoardHTML(BOARD_HEIGHT, BOARD_WIDTH);
 
 $(".square").mousedown(function(e){
 var id = e.target.id;
