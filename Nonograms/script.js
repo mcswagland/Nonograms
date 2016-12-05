@@ -27,8 +27,8 @@ function MarkCell(cell)
 	board[row][col] = MARKED;
 }
 
-  function BuildBoardArray(rows, cols)
-  {
+function BuildBoardArray(rows, cols)
+{
 	for(var i = 0; i < rows; i++)
 	{
 		board[i] = [];
@@ -37,22 +37,37 @@ function MarkCell(cell)
 		  board[i].push(0);
 		}
 	}
-  }
+}
   
-  function BuildBoardHTML(rows, cols)
-  {
-	  var $board = $("#boardBody");
-	  for(var row = 0; row < rows; row++)
-	  {
-		  var newRow = "<tr>";
-		  for(var col = 0; col < cols; col++)
-		  {
-			  newRow += "<td class = 'square empty' id='" + row + "-" + col + "'/>";
-		  }
-		  newRow += "</tr>";
-		  $board.append($(newRow));
-	  }
-  }
+function BuildBoardHTML(rows, cols)
+{
+	var $board = $("#boardBody");
+	for(var row = 0; row < rows; row++)
+	{
+		var newRow;
+		if ((row+1) % 5 === 0 && row+1 < rows)
+		{
+			newRow = "<tr class = 'thick-bottom'>";
+		}
+		else
+		{
+			newRow = "<tr>";
+		}
+		for(var col = 0; col < cols; col++)
+		{
+			if((col+1) % 5 === 0 && col+1 < cols)
+			{
+				newRow += "<td class ='square empty thick-right' id='" + row + "-" + col + "'/>";
+			}
+			else
+			{
+				newRow += "<td class = 'square empty' id='" + row + "-" + col + "'/>";
+			}
+		}
+		newRow += "</tr>";
+		$board.append($(newRow));
+	}
+}
   
 function CellIsFilled(cell)
 {

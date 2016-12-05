@@ -3,6 +3,14 @@ table, td {
     border-collapse: collapse;
 }
 
+.thick-right {
+	border-right: 3px solid black;
+}
+
+.thick-bottom {
+	border-bottom: 3px solid black;
+}
+
 .square {
     width: 25px;
     height: 25px;
